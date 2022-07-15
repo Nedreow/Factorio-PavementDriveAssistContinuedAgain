@@ -164,5 +164,48 @@ data:extend({
             minimum_value = -2,
             maximum_value = 2,
             order = "h-g",
+        },
+        {
+            type = "double-setting",
+            name = "PDA-tileset-score-hazard",
+            setting_type = "runtime-global",
+            default_value = -1.0,
+            minimum_value = -2,
+            maximum_value = 2,
+            order = "h-h",
+        },
+        {
+            type = "string-setting",
+            name = "PDA-tileset-custom-1",
+            setting_type = "runtime-global",
+            default_value = "",
+            allow_blank = true,
+            order = "h-i"
+        },
+        {
+            type = "double-setting",
+            name = "PDA-tileset-score-custom-1",
+            setting_type = "runtime-global",
+            default_value = 0.0,
+            minimum_value = -2,
+            maximum_value = 2,
+            order = "h-j",
+        },
+        {
+            type = "string-setting",
+            name = "PDA-tileset-custom-2",
+            setting_type = "runtime-global",
+            default_value = "",
+            allow_blank = true,
+            order = "h-k"
+        },
+        {
+            type = "double-setting",
+            name = "PDA-tileset-score-custom-2",
+            setting_type = "runtime-global",
+            default_value = 0.0,
+            minimum_value = -2,
+            maximum_value = 2,
+            order = "h-l",
         }
 })
