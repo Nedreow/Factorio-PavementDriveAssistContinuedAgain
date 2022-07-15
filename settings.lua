@@ -166,21 +166,12 @@ data:extend({
             order = "h-g",
         },
         {
-            type = "double-setting",
-            name = "PDA-tileset-score-hazard",
-            setting_type = "runtime-global",
-            default_value = -1.0,
-            minimum_value = -2,
-            maximum_value = 2,
-            order = "h-h",
-        },
-        {
             type = "string-setting",
             name = "PDA-tileset-custom-1",
             setting_type = "runtime-global",
             default_value = "",
             allow_blank = true,
-            order = "h-i"
+            order = "h-h"
         },
         {
             type = "double-setting",
@@ -189,7 +180,7 @@ data:extend({
             default_value = 0.0,
             minimum_value = -2,
             maximum_value = 2,
-            order = "h-j",
+            order = "h-i",
         },
         {
             type = "string-setting",
@@ -197,7 +188,7 @@ data:extend({
             setting_type = "runtime-global",
             default_value = "",
             allow_blank = true,
-            order = "h-k"
+            order = "h-j"
         },
         {
             type = "double-setting",
@@ -206,6 +197,6 @@ data:extend({
             default_value = 0.0,
             minimum_value = -2,
             maximum_value = 2,
-            order = "h-l",
+            order = "h-k",
         }
 })
