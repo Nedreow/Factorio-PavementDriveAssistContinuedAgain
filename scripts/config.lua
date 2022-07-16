@@ -3,6 +3,8 @@
 -- Copyright (c) 2022 Branko Majic
 -- Provided under MIT license. See LICENSE for details.
 
+local utils = require("scripts.utils")
+
 -- Advanced settings
 -- =================
 
@@ -44,6 +46,8 @@ local scores_values = {
     gravel = settings.global["PDA-tileset-score-gravel"].value,
     wood = settings.global["PDA-tileset-score-wood"].value,
     road_lines = settings.global["PDA-tileset-score-asphalt-road-lines"].value,
+    custom_1 = settings.global["PDA-tileset-score-custom-1"].value,
+    custom_2 = settings.global["PDA-tileset-score-custom-2"].value,
 }
 
 local scores = {}
@@ -257,6 +261,7 @@ function config.set_scores()
         ["transport-drone-road"] = scores_values.stone,
         ["transport-drone-road-better"] = scores_values.asphalt
     }
+    set_custom_categories()
 end
 
 function config.get_scores()
@@ -274,10 +279,28 @@ function config.update_scores()
         stone = settings.global["PDA-tileset-score-stone"].value,
         gravel = settings.global["PDA-tileset-score-gravel"].value,
         wood = settings.global["PDA-tileset-score-wood"].value,
-        road_lines = settings.global["PDA-tileset-score-asphalt-road-lines"].value
+        road_lines = settings.global["PDA-tileset-score-asphalt-road-lines"].value,
+        custom_1 = settings.global["PDA-tileset-score-custom-1"].value,
+        custom_2 = settings.global["PDA-tileset-score-custom-2"].value
     }
     config.set_scores()
     return scores
+end
+
+function set_custom_categories()
+    custom_category_1 = utils.tile_split(settings.global["PDA-tileset-custom-1"].value)
+    custom_category_2 = utils.tile_split(settings.global["PDA-tileset-custom-2"].value)
+
+    if (type(custom_category_1) == "table") then
+        for key, value in pairs(custom_category_1) do
+            scores[value] = scores_values.custom_1
+        end
+    end
+    if (type(custom_category_2) == "table") then
+        for key, value in pairs(custom_category_2) do
+            scores[value] = scores_values.custom_2
+        end
+    end
 end
 
 -- This variable determines the number of players inserted into the player_in_vehicle list if a vehicle is entered. Set this to more than 1 to simulate multiple players at once, useful for testing how many players your server is able to support until severe FPS-drops emerge.

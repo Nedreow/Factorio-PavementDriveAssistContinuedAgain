@@ -27,4 +27,14 @@ function utils.kmph_to_mpt(kmph)
 end
 
 
+function utils.tile_split(s)
+    tile_list = {}
+    delimiter = ","
+    for tile in (s..delimiter):gmatch("(.-)"..delimiter) do
+        table.insert(tile_list, tile:match( "^%s*(.-)%s*$" ));
+    end
+    return tile_list
+end
+
+
 return utils
